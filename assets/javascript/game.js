@@ -16,25 +16,29 @@ var cpuLetters = [];
 var userPastGuesses = [];
 var letterStorage =[];
 
-//Have computer pick random word from array
-var cpuWords = ["caitlin", "aaron", "domino", "blair"];
-var cpuWordChoice = cpuWords[Math.floor(Math.random() * cpuWords.length)];
 
-//Display word choice in console
-console.log(cpuWordChoice);
-
+var cpuWords = ["easy", "yes"];
 
 //Start game with space bar to show blank letters 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
+    	//Have computer pick random word from array
+		var cpuWordChoice = cpuWords[Math.floor(Math.random() * cpuWords.length)];
+		letterStorage = [];
+		cpuLetters = [];
+		console.log(cpuWordChoice);
+
        for (var j = 0; j < cpuWordChoice.length; j++){
-       	
+       
        	//have computer store the letters of the word choice for comparison later
        	letterStorage[j] = cpuWordChoice[j];
        	console.log(letterStorage);
        	//have computer display "_" for each letter of word and remove "," from the array
        	cpuLetters[j] = "_";
        	document.getElementById("cpuLetters").textContent = cpuLetters.join(' ');
+       	//set chances to 5, clear userPastGuesses;
+       	chances = 5;
+       	userPastGuesses = [];
 		}
 		
 		//Listen for user start with letters only
@@ -44,7 +48,7 @@ document.body.onkeyup = function(e){
 			//Checks if user typed in a letter only
 			if (event.keyCode >= 65 && event.keyCode <= 90){
 
-			//Check if user guess is in any letter of cpuWordChoice
+			//Check if user guess is in any letter of cpuWordChoice and place letter in blank space
 			for (var i = 0; i < cpuWordChoice.length; i++){
 				if (cpuWordChoice[i] === userGuess){
 					cpuLetters[i] = userGuess;
@@ -55,16 +59,24 @@ document.body.onkeyup = function(e){
 			if (letterStorage.indexOf(userGuess) < 0 && userPastGuesses.indexOf(userGuess) < 0){
 				userPastGuesses.push(userGuess);
 				chances--;
-				console.log("HEY THERE");
 			}
-			
 			
 		}
 
+		
+	
 
-	document.getElementById("userPastGuesses").textContent = userPastGuesses;
-	document.getElementById("chances").textContent = chances;
-	document.getElementById("cpuLetters").textContent = cpuLetters.join(' ');
+			if (cpuLetters.indexOf( "_" ) < 0){
+				alert("You win!");
+			}
+			if (chances === 0){
+				alert("Sorry try again!");
+			}
+			document.getElementById("userPastGuesses").textContent = userPastGuesses;
+			document.getElementById("chances").textContent = chances;
+			document.getElementById("cpuLetters").textContent = cpuLetters.join(' ');
+
+
 
 		} //on user enter valid letter
 	} //on user enter space bar
