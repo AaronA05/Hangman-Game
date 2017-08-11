@@ -2,20 +2,60 @@
 <html>
 <head>
 	<title>Hangman - Coding Style</title>
+	<link rel="stylesheet" type="text/css" href="assets\css\reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets\css\style.css">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
-<body>
+<body background="assets\images\dogs-background.jpg">
 
-<p>Let's get started. Hit the space bar to get started with your first word.</p>
+<div class="container">
+	<div class="jumbotron text-center">
+		<h1>Let's get started....</h1> 
+		<h2>Hit the space bar to get started with your first dog bred to guess.</h2>
+		<h3>To get in the right mindset feel free to play our theme music!</h3>
+		<div class="text-center">
+        <button class="btn btn-warning btn-xs theme-button"><span class="glyphicon glyphicon-music"></span> Play Theme!</button>
+        <button class="btn btn-default btn-xs pause-button"><span class="glyphicon glyphicon-pause"></span> Pause Song</button>
+      </div>
+	</div>
+</div>
 
-<p>Chances: <span id="chances"></span></p>
+<div class="container">
+	<div class="panel panel-default">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-4">
+				<p>Chances remaining: <span id="chances"></span></p>
+			</div>
+		</div>
 
-<p>Guess the word: <span id="cpuLetters"></span></p>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-4">
+				<p>Guess the bred of dog: <span id="cpuLetters"></span></p>
+			</div>
+		</div>
 
-<p>Past Guesses: <span id="userPastGuesses"></span></p>
+		<div class="row">	
+			<div class="col-md-6 col-md-offset-4">
+				<p>Past Guesses: <span id="userPastGuesses"></span></p>
+			</div>
+		</div>
 
-<!-- <button type="button" class="btn btn-default easy-game" onclick="easyScript()">Easy Game</button>
 
-<button type="button" class="btn btn-danger easy-game" onclick="medScript()">Medium Game</button> -->
+		<div class="row">
+				<img class="img-responsive" id="golden" src="assets\images\Golden.jpg">
+				<img class="img-responsive" id="beagle" src="assets\images\beagle.jpg">
+				<img class="img-responsive" id="chihuahua" src="assets\images\chihuahua.jpg">
+				<img class="img-responsive" id="dalmatian" src="assets\images\dalmatian.jpg">
+				<img class="img-responsive" id="hound" src="assets\images\hound.jpg">
+				<img class="img-responsive" id="poodle" src="assets\images\poodle.jpg">
+				<img class="img-responsive" id="spaniel" src="assets\images\spaniel.jpg">
+		</div>
+
+	</div>
+</div>
+
 
 <script type="text/javascript" src="assets\javascript\game.js"></script>
 

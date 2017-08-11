@@ -17,7 +17,23 @@ var userPastGuesses = [];
 var letterStorage =[];
 
 
-var cpuWords = ["easy", "yes"];
+var cpuWords = ["retriever", "hound", "chihuahua", "dalmatian", "beagle", "poodle", "spaniel"];
+
+$(document).ready(function() {
+
+      // Gets Link for Theme Song
+      var audioElement = document.createElement("audio");
+      audioElement.setAttribute("src", "Assets/Baha_Men-Who_Let_the_Dogs_Out.mp3");
+
+      // Theme Button
+      $(".theme-button").on("click", function() {
+        audioElement.play();
+      });
+
+      $(".pause-button").on("click", function() {
+        audioElement.pause();
+      });
+});
 
 //Start game with space bar to show blank letters 
 document.body.onkeyup = function(e){
@@ -27,6 +43,13 @@ document.body.onkeyup = function(e){
 		letterStorage = [];
 		cpuLetters = [];
 		console.log(cpuWordChoice);
+		document.getElementById("golden").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("beagle").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("chihuahua").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("dalmatian").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("hound").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("poodle").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("spaniel").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
 
        for (var j = 0; j < cpuWordChoice.length; j++){
        
@@ -50,13 +73,13 @@ document.body.onkeyup = function(e){
 
 			//Check if user guess is in any letter of cpuWordChoice and place letter in blank space
 			for (var i = 0; i < cpuWordChoice.length; i++){
-				if (cpuWordChoice[i] === userGuess){
+				if (cpuWordChoice[i] === userGuess && chances > 0){
 					cpuLetters[i] = userGuess;
 				}
 			}
 
 			//Check if user guess is in previous gueses or is part of game word
-			if (letterStorage.indexOf(userGuess) < 0 && userPastGuesses.indexOf(userGuess) < 0){
+			if (letterStorage.indexOf(userGuess) < 0 && userPastGuesses.indexOf(userGuess) < 0 && chances > 0){
 				userPastGuesses.push(userGuess);
 				chances--;
 			}
@@ -64,18 +87,50 @@ document.body.onkeyup = function(e){
 		}
 
 		
-	
-
-			if (cpuLetters.indexOf( "_" ) < 0){
-				alert("You win!");
-			}
-			if (chances === 0){
-				alert("Sorry try again!");
-			}
 			document.getElementById("userPastGuesses").textContent = userPastGuesses;
 			document.getElementById("chances").textContent = chances;
 			document.getElementById("cpuLetters").textContent = cpuLetters.join(' ');
 
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "golden"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("golden").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "beagle"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("beagle").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "chihuahua"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("chihuahua").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "dalmatian"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("dalmatian").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "hound"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("hound").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "poodle"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("poodle").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "spaniel"){
+				alert("You win! Enjoy a picture of your dog!!");
+				document.getElementById("spaniel").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+			}
+
+			if (chances === 0){
+				alert("Sorry try again! Hit the spacebar for a new word!");
+			}
+			
 
 
 		} //on user enter valid letter

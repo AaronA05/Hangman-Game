@@ -1,0 +1,12 @@
+img{
+	opacity: 0;
+	height: 1px;
+	width: 1px;
+	float: left;
+	margin-left: 75px;
+}
+
+p{
+	font-size: 20px;
+	font-weight: bold;
+}
