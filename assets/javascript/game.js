@@ -43,7 +43,7 @@ document.body.onkeyup = function(e){
 		letterStorage = [];
 		cpuLetters = [];
 		console.log(cpuWordChoice);
-		document.getElementById("golden").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
+		document.getElementById("retriever").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
 		document.getElementById("beagle").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
 		document.getElementById("chihuahua").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
 		document.getElementById("dalmatian").setAttribute("style", "opacity: 0; height: 1px; width: 1px");
@@ -92,9 +92,9 @@ document.body.onkeyup = function(e){
 			document.getElementById("cpuLetters").textContent = cpuLetters.join(' ');
 
 
-			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "golden"){
+			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "retriever"){
 				alert("You win! Enjoy a picture of your dog!!");
-				document.getElementById("golden").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
+				document.getElementById("retriever").setAttribute("style", "opacity: 1; height: 200px; width: 200px")
 			}
 
 			if (cpuLetters.indexOf( "_" ) < 0 && cpuWordChoice === "beagle"){
